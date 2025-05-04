@@ -14,6 +14,7 @@ document.addEventListener("click", function (event) {
 });
 
 function renderData(data) {
+  const numbers = ["One", "Two", "Three", "Four", "Five", "Six", "Seven"];
   const day_one = document.getElementById("day_one");
   const day_two = document.getElementById("day_two");
   const day_three = document.getElementById("day_three");
@@ -29,13 +30,9 @@ function renderData(data) {
   day_six.innerHTML = "Day Six"
   day_seven.innerHTML = "Day Seven"
   console.log(data)
-  showCloudCover(data.dataseries[7]["cloudcover"], "One");
-  showCloudCover(data.dataseries[15]["cloudcover"], "Two");
-  showCloudCover(data.dataseries[23]["cloudcover"], "Three");
-  showCloudCover(data.dataseries[31]["cloudcover"], "Four");
-  showCloudCover(data.dataseries[39]["cloudcover"], "Five");
-  showCloudCover(data.dataseries[47]["cloudcover"], "Six");
-  showCloudCover(data.dataseries[55]["cloudcover"], "Seven");
+  for(let i = 0; i < numbers.length; i++) {
+    showCloudCover(data.dataseries[8*(i+1) - 1]["cloudcover"], numbers[i])
+  }
 }
 
 function showCloudCover(coverAmount, number){
